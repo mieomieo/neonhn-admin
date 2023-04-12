@@ -231,7 +231,7 @@ router.beforeEach((to, from, next) => {
     next({ name: 'login' })
   } else if (uid && email) {
     store.changeUserName(email)
-    if (email === 'quanghm27@gmail.com') {
+    if (email === 'admin@gmail.com') {
       store.setAdminRole()
     }
     next()

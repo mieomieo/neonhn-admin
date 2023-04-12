@@ -10,7 +10,7 @@
                 <th>{{ t('tables.headings.email') }}</th>
                 <th>{{ t('tables.headings.name') }}</th>
                 <th>{{ t('tables.headings.orderDate') }}</th>
-                <th>{{ t('encodedDesign') }}</th>
+                <th>{{ t('Design') }}</th>
                 <th>{{ t('tables.headings.orderDesign') }}</th>
                 <th>{{ t('tables.headings.orderOptions') }}</th>
               </tr>
