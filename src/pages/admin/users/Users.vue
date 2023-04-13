@@ -7,6 +7,7 @@
             <thead>
               <tr>
                 <th>{{ t('tables.headings.email') }}</th>
+                <th>{{ t('userId') }}</th>
                 <th>{{ t('tables.headings.name') }}</th>
                 <th>{{ t('tables.headings.userCreatedDate') }}</th>
               </tr>
@@ -15,6 +16,7 @@
             <tbody>
               <tr v-for="user in computedUsers" :key="user.userId">
                 <td>{{ user.email }}</td>
+                <td>{{ user.userId }}</td>
                 <td>{{ user.displayName }}</td>
                 <td>{{ user.date }}</td>
               </tr>
@@ -36,8 +38,8 @@
   const computedUsers = computed(() => {
     return Object.entries(users.value).map(([userId, user]) => {
       return {
-        userId: userId,
         email: user.email,
+        userId: user.userId,
         displayName: user.displayName,
         date: dayjs(user.date).format('DD/MM/YYYY'),
       }

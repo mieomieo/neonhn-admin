@@ -61,11 +61,9 @@ export async function signIn(email, password) {
   }
 }
 
-const dbRef = ref(getDatabase())
-
 export async function getFirebaseOrders() {
   try {
-    const snapshot = await get(child(dbRef, `orders`))
+    const snapshot = await get(child(ref(db), `orders`))
     if (snapshot.exists()) {
       return snapshot.val()
     } else {
@@ -78,7 +76,7 @@ export async function getFirebaseOrders() {
 
 export async function getFirebaseUsers() {
   try {
-    const snapshot = await get(child(dbRef, `users`))
+    const snapshot = await get(child(ref(db), `users`))
     if (snapshot.exists()) {
       return snapshot.val()
     } else {

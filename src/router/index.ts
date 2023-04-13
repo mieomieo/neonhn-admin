@@ -12,7 +12,7 @@ import { RouteName } from '../types'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/:catchAll(.*)',
-    redirect: { name: 'dashboard' },
+    redirect: { name: 'orders' },
   },
   {
     name: 'admin',

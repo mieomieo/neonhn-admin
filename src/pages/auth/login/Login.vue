@@ -16,6 +16,7 @@
       :label="t('auth.password')"
       :error="!!passwordErrors.length"
       :error-messages="passwordErrors"
+      @keydown.enter="onsubmit"
     />
     <p v-if="firebaseError" class="va-text-danger">
       {{ firebaseError }}
