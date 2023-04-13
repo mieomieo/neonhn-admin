@@ -23,9 +23,9 @@
                 <td>{{ order.orderId }}</td>
                 <td>{{ order.date }}</td>
                 <td>
-                  <a class="va-text-primary download-btn" :href="`https://` + order.encodedDesign" target="_blank"
+                  <b class="va-text-primary download-btn" :href="`https://` + order.encodedDesign" target="_blank"
                     >link
-                  </a>
+                  </b>
                 </td>
                 <td>
                   <b class="va-text-primary download-btn" @click="downloadSvg(order.fileSVG)"> Download file</b>
