@@ -57,7 +57,7 @@
         localStorage.setItem('UID', user.uid)
         localStorage.setItem('email', user.email)
         store.changeUserName(user.email)
-        await router.push({ name: 'dashboard' })
+        await router.push({ name: 'orders' })
       }
     } catch (e: any) {
       firebaseError.value = e?.message
