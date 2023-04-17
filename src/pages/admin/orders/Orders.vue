@@ -8,7 +8,7 @@
               <tr>
                 <th>{{ t('No.') }}</th>
                 <th>{{ t('tables.headings.email') }}</th>
-                <th>{{ t('tables.headings.name') }}</th>
+                <th>{{ t('Order ID') }}</th>
                 <th>{{ t('tables.headings.orderDate') }}</th>
                 <th>{{ t('Design') }}</th>
                 <th>{{ t('tables.headings.orderDesign') }}</th>
@@ -23,9 +23,7 @@
                 <td>{{ order.orderId }}</td>
                 <td>{{ order.date }}</td>
                 <td>
-                  <b class="va-text-primary download-btn" :href="`https://` + order.encodedDesign" target="_blank"
-                    >link
-                  </b>
+                  <a class="va-text-primary download-btn" :href="order.encodedDesign" target="_blank"><b>link</b> </a>
                 </td>
                 <td>
                   <b class="va-text-primary download-btn" @click="downloadSvg(order.fileSVG)"> Download file</b>
@@ -54,11 +52,16 @@
     return Object.entries(ordersFromApi.value)
       .map(([userId, orders]) => {
         return Object.entries(orders).map(([orderId, order]) => {
+          const dataEncode = order.encodedDesign
+          // const host = window.location.origin
+          const host = 'https://neon-hn.netlify.app/'
+          const path = 'create-your-own'
+          const designUrl = host + path + '?data=' + dataEncode
           return {
             orderId,
             date: dayjs(order.date).format('DD/MM/YYYY'),
             userEmail: order.email,
-            encodedDesign: order.encodedDesign,
+            encodedDesign: designUrl,
             fileSVG: order.fileSVG,
             options: order.options,
           }
