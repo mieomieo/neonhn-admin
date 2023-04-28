@@ -30,7 +30,7 @@
   </svg> -->
   <div>
     <!-- <img id="logo" src="../logo.png" alt="" /> -->
-    <h1>ADMIN</h1>
+    <h1>NEON-HN ADMIN</h1>
   </div>
 </template>
 

@@ -6,6 +6,7 @@
           <table class="va-table va-table--striped va-table--hoverable">
             <thead>
               <tr>
+                <th>{{ t('No.') }}</th>
                 <th>{{ t('tables.headings.email') }}</th>
                 <th>{{ t('userId') }}</th>
                 <th>{{ t('tables.headings.name') }}</th>
@@ -14,7 +15,8 @@
             </thead>
 
             <tbody>
-              <tr v-for="user in computedUsers" :key="user.userId">
+              <tr v-for="(user, index) in computedUsers" :key="user.userId">
+                <td>{{ index + 1 }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.userId }}</td>
                 <td>{{ user.displayName }}</td>

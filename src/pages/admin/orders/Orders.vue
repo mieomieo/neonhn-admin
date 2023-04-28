@@ -40,10 +40,11 @@
 
 <script setup lang="ts">
   import { computed, onMounted, ref } from 'vue'
-  import { getFirebaseOrders } from '../../../firebase'
+  import { getFirebaseOrders, db } from '../../../firebase'
   import dayjs from 'dayjs'
   import { useI18n } from 'vue-i18n'
   import { saveAs } from 'file-saver'
+  import { onValue, ref as firebaseRef } from 'firebase/database'
 
   const { t } = useI18n()
   const ordersFromApi = ref([])
@@ -68,6 +69,8 @@
         })
       })
       .flat()
+      .slice()
+      .reverse()
   })
 
   async function downloadSvg(link: string) {
@@ -91,7 +94,10 @@
   }
 
   onMounted(async () => {
-    ordersFromApi.value = await getFirebaseOrders()
+    const ordersRef = firebaseRef(db, 'orders')
+    onValue(ordersRef, async (snapshow) => {
+      ordersFromApi.value = await getFirebaseOrders()
+    })
     console.log('ordersFromApi', ordersFromApi.value)
   })
 </script>
