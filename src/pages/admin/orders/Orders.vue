@@ -13,6 +13,7 @@
                 <th>{{ t('Design') }}</th>
                 <th>{{ t('tables.headings.orderDesign') }}</th>
                 <th>{{ t('tables.headings.orderOptions') }}</th>
+                <th>{{ t('Informations') }}</th>
               </tr>
             </thead>
 
@@ -29,6 +30,7 @@
                   <b class="va-text-primary download-btn" @click="downloadSvg(order.fileSVG)"> Download file</b>
                 </td>
                 <td>{{ order.options }}</td>
+                <td>{{ order.informations }}</td>
               </tr>
             </tbody>
           </table>
@@ -65,6 +67,7 @@
             encodedDesign: designUrl,
             fileSVG: order.fileSVG,
             options: order.options,
+            informations: order.info,
           }
         })
       })
